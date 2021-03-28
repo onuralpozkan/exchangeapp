@@ -9,11 +9,11 @@ export const CurrencyTable = ({currencyAndValue, currencies, removeFromTable}) =
     });
   }
   return (
-    <table className="table table-responsive table-striped">
+    <table className="table table-responsive table-bordered" style={{width:"100%;"}}>
       <thead>
         <tr>
           {currencies.map((currency) => (
-            <th>
+            <th style={{minWidth:"150px;"}}>
               {currency}
               <span className="ml-4">
                 <button
