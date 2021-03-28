@@ -11,12 +11,15 @@ export const CurrencySelector = ({currencyAndValue, addCurrencyToTable}) => {
      return currency
    }
   return (
-    <select name="currencies" id="currencies">
+   <>
+   <label htmlFor="currencies">Döviz Kuru</label>
+    <select name="currencies" id="currencies" className="form-control">
       {currencyAndValue.map((item) => (
         <option value={item[0]} onClick={(e) => addCurrencyToTable(e)} key={`${item[0]}:${item[1]}`}>
           {getCurrencyName(item[0])}
         </option>
       ))}
     </select>
+   </>
   );
 };
