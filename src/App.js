@@ -44,9 +44,12 @@ function App() {
           </select>
         </div>
         <hr/>
+        <i>{base} = 1</i> 
+        <hr/>
         <CurrencySelector
           currencyAndValue={currencyAndValue}
           addCurrencyToTable={addCurrencyToTable}
+          base={base}
         />
         <hr />
         {currencies.length >= 1 ? (
