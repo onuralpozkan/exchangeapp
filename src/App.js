@@ -6,17 +6,21 @@ import { Header } from './components/layout/Header';
 function App() {
   const [exchangeRates, setExchangeRates] = useState([]);
   const [currencies, setCurrencies] = useState([]);
-  const [base, setBase] = useState("EUR")
-  const currencyAndValue = Object.entries(exchangeRates);
+  const [base, setBase] = useState("USD")
+  const [currencyAndValue,setCurrencyAndValues] = useState([])
   useEffect(() => {
-    const url = `https://api.exchangeratesapi.io/latest?base=${base}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setExchangeRates(data.rates))
-      .catch((err) => console.error(err));
-  }, [base]);
-
-
+    //const API_URL = "http://data.fixer.io/api/latest?access_key=8d8d4813bdd326237b70832be8999a07&base="
+    const API_URL = "http://api.openrates.io/latest"
+    fetch(`${API_URL}?base=${base}`)
+    .then((res) => res.json())
+    .then((data) =>{
+      setExchangeRates(data.rates)
+      setCurrencyAndValues(Object.entries(exchangeRates))
+      console.log(data.rates);
+    })
+    .catch((err) => console.error(err));
+  }, [base,exchangeRates]);
+ 
 
   const addCurrencyToTable = (e) => {
     e.preventDefault();

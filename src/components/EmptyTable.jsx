@@ -4,11 +4,13 @@ export const EmptyTable = () => {
   return (
    <table className="table-responsive">
      
-     <tr>
+    <tbody>
+    <tr>
        <td>
          There is No Data 
        </td>
      </tr>
+    </tbody>
    </table>
   )
 }
